@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>登录页面</title>
+    <link rel="stylesheet" type="text/css" href="../css/login.css" />
+    <link rel="stylesheet" type="text/css" href="../css/base.css" />
+    <script src="../lib/common.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="box">
+        <div class="biaodan">
+            <div class="biaodan_t">
+                <div class="fl"><img src="../img/tp_01.png" height="60" width="120" alt="" /></div>
+                <div class="fl"><h1>后台管理系统</h1></div>
+            </div>
+            <div class="biaodan_c">
+                <div>
+                    <input type="text" class="username" placeholder="用户名" /><i class="i1"></i>
+                </div>
+                <div>
+                    <input type="password" class="password" placeholder="密码" /><i class="i2"></i>
+                    <span class="s1"></span>
+                </div>
+                <div style="margin-bottom:30px">
+                    <input type="text" class="yanzhangma" placeholder="图形验证码" /><i class="i3"></i><span class="authcode"></span>
+                    <span class="s3"></span>
+                </div>
+                <div>
+                    <p class="fl">
+                        <input type="checkbox" class="wenbenk" />
+                        <span class="s4">记住密码</span>
+                    </p>
+                    <p class="fr">
+                        <a href="#" class="a1">忘记密码？</a>
+                    </p>
+                </div>
+            </div>
+            <div class="biaodan_b btnlogin">登入</div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded',()=>{
+        let username = document.querySelector('.username');
+        let password = document.querySelector('.password');
+        let yanzhangma = document.querySelector('.yanzhangma');
+        let btnlogin = document.querySelector('.btnlogin');
+        let spaninf = document.querySelector('.biaodan_c .s1');
+        let spaninf2 = document.querySelector('.biaodan_c .s3');
+
+        let authcode = document.querySelector('.authcode');
+        
+        let isok=false;
+        //3随机验证码
+       function randomNum(){
+                num='';
+                var str='0123456789zxcvbnmasdfghjklqwertyuiopZXCVBNMASDFGHJKLQWERTYUIOP';//
+                //生成随机四位数有字母的验证码
+                for(var i=0;i<4;i++){
+                    num+=str.charAt(parseInt(Math.random()*str.length));
+                }
+                return num;
+            }
+         function update(){
+                var color=randomColor(16);
+                //生成随机颜色四位数有字母的验证码
+                authcode.style.color=color;
+            }
+            update();
+            authcode.innerText=randomNum(); 
+            authcode.onclick=()=>{
+                var val=authcode.innerText;
+                authcode.innerText=randomNum();
+                update();
+           }  
+        
+         //失去焦点验证验证码
+           yanzhangma.onblur=()=>{
+            var val1=yanzhangma.value.trim();
+            var val2=authcode.innerText;
+                if(val1){
+                    if(val1==val2){
+                        spaninf2.innerHTML='验证码正确';
+                        spaninf2.style.color='green';
+                         isok=true;
+                    }else{
+                        spaninf2.innerHTML='验证码错误';
+                        spaninf2.style.color='red';
+                    }
+                }else{
+                    spaninf2.innerHTML='不能为空';
+                     spaninf2.style.color='red';
+                }
+           }
+
+        let status = [200,304];
+        btnlogin.onclick = ()=>{
+            let _username = username.value;
+            let _password = password.value;
+            if(_username && _password){
+                if(isok){
+                    let xhr = new XMLHttpRequest();
+                    xhr.onload = ()=>{
+                        if(status.includes(xhr.status)){
+                            let res = JSON.parse(xhr.responseText);
+                            console.log(res);
+                            if(res.code===1){
+                                location.href = '../index.html';
+                            }else{
+                                spaninf.innerHTML='输入的账号或者密码不正确';
+                                spaninf.style.color='red';
+                            }
+                        }
+                    }
+                    xhr.open('post','/login',true);
+                    xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                    xhr.send(`username=${_username}&password=${_password}`);
+                }else{
+                    spaninf2.innerHTML='验证码错误';
+                    spaninf2.style.color='red';
+                }
+            }else{
+            alert('账号密码不能为空');
+        }
+    }
+
+});
+    </script>
+</body>
+</html>
