@@ -1,4 +1,17 @@
 {
+<<<<<<< HEAD
+  "name": "backmanagement",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gaoxie",
+=======
   "name": "nodeproject",
   "version": "1.0.0",
   "description": "",
@@ -7,6 +20,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "xiaoxie",
+>>>>>>> a9d3567063e29a96828390080321cb5cafa5f5ba
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",

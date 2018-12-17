@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>用户添加</title>
+		<link rel="stylesheet" type="text/css" href="../assets/layui/css/layui.css" />
+		<link rel="stylesheet" type="text/css" href="../css/useradd.css" />
+		<script type="text/javascript" src="../assets/layui/layui.js"></script>
+
+	</head>
+	<body class="layui-layout-body">
+		<div class="layui-layout layui-layout-admin">
+			<div class="layui-header">
+				<div class="layui-logo">GX商城后台管理系统</div>
+				<ul class="nav-left">
+					<li class="nav-leftchild"><a href="javascript:;">首页</a></li>
+					<li class="nav-leftchild"><a href="javascript:;">/ 用户管理</a></li>
+					<li class="nav-leftchild"><a href="javascript:;">/ 用户添加</a></li>
+				</ul>
+				<ul class="layui-nav layui-layout-right">
+					<li class="layui-nav-item">
+						<a href="javascript:;">
+							<img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+							大神
+						</a>
+						<dl class="layui-nav-child">
+							<dd><a href="">基本资料</a></dd>
+							<dd><a href="">安全设置</a></dd>
+						</dl>
+					</li>
+					<li class="layui-nav-item"><a href="">退出</a></li>
+				</ul>
+			</div>
+
+			<div class="layui-side layui-bg-black">
+				<div class="layui-side-scroll">
+					<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+					<ul class="layui-nav layui-nav-tree" lay-filter="test">
+						<li class="layui-nav-item layui-nav-itemed">
+							<a class="" href="javascript:;">商品管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="javascript:;">商品列表</a></dd>
+								<dd><a href="javascript:;">商品分类</a></dd>
+								<dd><a href="javascript:;">添加商品</a></dd>
+								<dd><a href="javascript:;">添加分类</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">用户管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="javascript:;">用户列表</a></dd>
+                <dd><a href="javascript:;">添加用户</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">订单管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="javascript:;">订单列表</a></dd>
+							</dl>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="layui-body">
+				<div class="layui-form" action="">
+					<div class="layui-form-item">
+						<label class="layui-form-label">用户名</label>
+						<div class="layui-input-block">
+							<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入用户名" class="layui-input inputadd1">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">昵称</label>
+						<div class="layui-input-block">
+							<input type="text" name="username" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input inputadd1">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">密码</label>
+						<div class="layui-input-block">
+							<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入6-12位密码" class="layui-input inputadd1">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">确认密码</label>
+						<div class="layui-input-block">
+							<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请再次输入密码" class="layui-input inputadd1">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-inline">
+							<label class="layui-form-label">手机号</label>
+							<div class="layui-input-inline">
+								<input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
+							</div>
+						</div>
+						<div class="layui-inline">
+      						<label class="layui-form-label">性别</label>
+      						<div class="layui-input-inline">
+        						<select name="quiz">
+          						<option value="">请选择</option>
+            						<option value="男">男</option>
+            						<option value="女">女</option>
+        						</select>
+      						</div>
+    					</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-inline">
+							<label class="layui-form-label">生日</label>
+							<div class="layui-input-inline">
+								<input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input" placeholder="yy-MM-dd">
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">邮箱地址</label>
+						<div class="layui-input-block">
+							<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入邮箱地址" class="layui-input inputadd1">
+						</div>
+					</div>
+					<div class="layui-form-item layui-form-text">
+						<label class="layui-form-label">备注</label>
+						<div class="layui-input-block inputadd1">
+							<textarea class="layui-textarea"></textarea>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-input-block">
+							<button class="layui-btn" lay-submit="" lay-filter="demo1">确认</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+			<!-- 表单特效js -->
+			<script>
+				layui.use(['form', 'layedit', 'laydate'], function() {
+					var form = layui.form,
+						layer = layui.layer,
+						layedit = layui.layedit,
+						laydate = layui.laydate;
+
+					//日期
+					laydate.render({
+						elem: '#date'
+					});
+					laydate.render({
+						elem: '#date1'
+					});
+
+					//创建一个编辑器
+					var editIndex = layedit.build('LAY_demo_editor');
+
+					//自定义验证规则
+					form.verify({
+						title: function(value) {
+							if (value.length < 5) {
+								return '标题至少得5个字符啊';
+							}
+						},
+						pass: [/(.+){6,12}$/, '密码必须6到12位'],
+						content: function(value) {
+							layedit.sync(editIndex);
+						}
+					});
+
+					//监听指定开关
+					form.on('switch(switchTest)', function(data) {
+						layer.msg('开关checked：' + (this.checked ? 'true' : 'false'), {
+							offset: '6px'
+						});
+						layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+					});
+
+					//监听提交
+					form.on('submit(demo1)', function(data) {
+						layer.alert(JSON.stringify(data.field), {
+							title: '最终的提交信息'
+						})
+						return false;
+					});
+
+					//表单初始赋值
+					form.val('example', {
+						"username": "贤心" // "name": "value"
+							,
+						"password": "123456",
+						"interest": 1,
+						"like[write]": true //复选框选中状态
+							,
+						"close": true //开关状态
+							,
+						"sex": "女",
+						"desc": "我爱 layui"
+					})
+
+
+				});
+			</script>
+
+			<!-- 上传图片特效js -->
+			<script>
+				layui.use('upload', function() {
+					var $ = layui.jquery,
+						upload = layui.upload;
+
+					//普通图片上传
+					var uploadInst = upload.render({
+						elem: '#test1',
+						url: '/upload/',
+						before: function(obj) {
+							//预读本地文件示例，不支持ie8
+							obj.preview(function(index, file, result) {
+								$('#demo1').attr('src', result); //图片链接（base64）
+							});
+						},
+						done: function(res) {
+							//如果上传失败
+							if (res.code > 0) {
+								return layer.msg('上传失败');
+							}
+							//上传成功
+						},
+						error: function() {
+							//演示失败状态，并实现重传
+							var demoText = $('#demoText');
+							demoText.html(
+								'<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+							demoText.find('.demo-reload').on('click', function() {
+								uploadInst.upload();
+							});
+						}
+					});
+				});
+			</script>
+
+
+
+		</div>
+
+		<div class="layui-footer">
+			<!-- 底部固定区域 -->
+			© GX后台管理系统 2018-2030
+		</div>
+		</div>
+		<script>
+			//JavaScript代码区域
+			layui.use('element', function() {
+				var element = layui.element;
+
+			});
+		</script>
+	</body>
+</html>
