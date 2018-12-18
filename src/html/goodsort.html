@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>layout 后台大布局 - Layui</title>
+  <title>商品分类</title>
   <link rel="stylesheet" type="text/css" href="../assets/layui/css/layui.css" />
-  <link rel="stylesheet" type="text/css" href="../css/goodlist.css" />
+  <link rel="stylesheet" type="text/css" href="../css/goodsort.css" />
   <script type="text/javascript" src="../assets/layui/layui.js"></script>
 
 </head>
@@ -14,23 +14,10 @@
   <div class="layui-header">
     <div class="layui-logo">GX商城后台管理系统</div>
     <!-- 头部区域（可配合layui已有的水平导航） -->
-    <!-- <ul class="layui-nav layui-layout-left">
-      <li class="layui-nav-item"><a href="">控制台</a></li>
-      <li class="layui-nav-item"><a href="">商品管理</a></li>
-      <li class="layui-nav-item"><a href="">用户</a></li>
-      <li class="layui-nav-item">
-        <a href="javascript:;">其它系统</a>
-        <dl class="layui-nav-child">
-          <dd><a href="">邮件管理</a></dd>
-          <dd><a href="">消息管理</a></dd>
-          <dd><a href="">授权管理</a></dd>
-        </dl>
-      </li>
-    </ul> -->
     <ul class="nav-left">
       <li class="nav-leftchild"><a href="javascript:;">首页</a></li>
       <li class="nav-leftchild"><a href="javascript:;">/ 商品管理</a></li>
-      <li class="nav-leftchild"><a href="javascript:;">/ 商品列表</a></li>
+      <li class="nav-leftchild"><a href="javascript:;">/ 商品分类</a></li>
     </ul>
     <ul class="layui-nav layui-layout-right">
       <li class="layui-nav-item">
@@ -56,12 +43,15 @@
           <dl class="layui-nav-child">
             <dd><a href="javascript:;">商品列表</a></dd>
             <dd><a href="javascript:;">商品分类</a></dd>
+            <dd><a href="javascript:;">添加商品</a></dd>
+            <dd><a href="javascript:;">添加分类</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">
           <a href="javascript:;">用户管理</a>
           <dl class="layui-nav-child">
             <dd><a href="javascript:;">用户列表</a></dd>
+            <dd><a href="javascript:;">添加用户</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">
@@ -76,7 +66,14 @@
   
   <div class="layui-body">
     <!-- 内容主体区域 -->
-    <div style="padding: 15px;">内容主体区域</div>
+    <div class="layui-bodytop">    
+      <div class="addbtn1">
+        <button class="layui-btn">增加</button>
+        <button class="layui-btn layui-btn-danger">删除</button>
+      </div>
+    </div>
+
+   <table class="layui-hide" id="test"></table>
   </div>
   
   <div class="layui-footer">
@@ -89,6 +86,27 @@
 layui.use('element', function(){
   var element = layui.element;
   
+});
+layui.use('table', function(){
+  var table = layui.table;
+  
+  table.render({
+    elem: '#test'
+    ,url:'/demo/table/user/'
+    ,cols: [[
+      {type:'checkbox',width:50}
+      ,{field:'id', width:100, title: 'ID', sort: true}
+      ,{field:'username', width:150, title: '用户名'}
+      ,{field:'sex', width:100, title: '性别', sort: true}
+      ,{field:'city', width:100, title: '城市'}
+      ,{field:'sign', title: '签名', minWidth: 150}
+      ,{field:'classify', width:100, title: '职业'}
+      ,{field:'score', width:100, title: '评分', sort: true}
+      ,{field:'experience', width:100, title: '积分', sort: true}
+      ,{field:'operate', width:200, title: '操作'} 
+    ]]
+    ,page: true
+  });
 });
 </script>
 </body>

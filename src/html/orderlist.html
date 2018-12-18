@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>layout 后台大布局 - Layui</title>
+  <title>订单列表</title>
   <link rel="stylesheet" type="text/css" href="../assets/layui/css/layui.css" />
-  <link rel="stylesheet" type="text/css" href="../css/goodlist.css" />
+  <link rel="stylesheet" type="text/css" href="../css/orderlist.css" />
   <script type="text/javascript" src="../assets/layui/layui.js"></script>
 
 </head>
@@ -13,24 +13,10 @@
 <div class="layui-layout layui-layout-admin">
   <div class="layui-header">
     <div class="layui-logo">GX商城后台管理系统</div>
-    <!-- 头部区域（可配合layui已有的水平导航） -->
-    <!-- <ul class="layui-nav layui-layout-left">
-      <li class="layui-nav-item"><a href="">控制台</a></li>
-      <li class="layui-nav-item"><a href="">商品管理</a></li>
-      <li class="layui-nav-item"><a href="">用户</a></li>
-      <li class="layui-nav-item">
-        <a href="javascript:;">其它系统</a>
-        <dl class="layui-nav-child">
-          <dd><a href="">邮件管理</a></dd>
-          <dd><a href="">消息管理</a></dd>
-          <dd><a href="">授权管理</a></dd>
-        </dl>
-      </li>
-    </ul> -->
     <ul class="nav-left">
       <li class="nav-leftchild"><a href="javascript:;">首页</a></li>
-      <li class="nav-leftchild"><a href="javascript:;">/ 商品管理</a></li>
-      <li class="nav-leftchild"><a href="javascript:;">/ 商品列表</a></li>
+      <li class="nav-leftchild"><a href="javascript:;">/ 订单管理</a></li>
+      <li class="nav-leftchild"><a href="javascript:;">/ 订单列表</a></li>
     </ul>
     <ul class="layui-nav layui-layout-right">
       <li class="layui-nav-item">
@@ -56,12 +42,15 @@
           <dl class="layui-nav-child">
             <dd><a href="javascript:;">商品列表</a></dd>
             <dd><a href="javascript:;">商品分类</a></dd>
+            <dd><a href="javascript:;">添加商品</a></dd>
+            <dd><a href="javascript:;">添加分类</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">
           <a href="javascript:;">用户管理</a>
           <dl class="layui-nav-child">
             <dd><a href="javascript:;">用户列表</a></dd>
+            <dd><a href="javascript:;">添加用户</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">
@@ -76,7 +65,44 @@
   
   <div class="layui-body">
     <!-- 内容主体区域 -->
-    <div style="padding: 15px;">内容主体区域</div>
+   <table class="layui-hide" id="test">
+      <!-- <tr data-index="1" class="">
+      <td data-field="0" data-key="1-0-0" class="layui-table-col-special">
+        <div class="layui-table-cell laytable-cell-1-0-0 laytable-cell-checkbox"><input type="checkbox" name="layTableCheckbox"
+           lay-skin="primary">
+          <div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon layui-icon-ok"></i></div>
+        </div>
+      </td>
+      <td data-field="id" data-key="1-0-1" class="">
+        <div class="layui-table-cell laytable-cell-1-0-1">10001</div>
+      </td>
+      <td data-field="goodname" data-key="1-0-2" class="">
+        <div class="layui-table-cell laytable-cell-1-0-2">user-1</div>
+      </td>
+      <td data-field="price" data-key="1-0-3" class="">
+        <div class="layui-table-cell laytable-cell-1-0-3">男</div>
+      </td>
+      <td data-field="quantity" data-key="1-0-4" class="">
+        <div class="layui-table-cell laytable-cell-1-0-4">城市-1</div>
+      </td>
+      <td data-field="yunfei" data-key="1-0-5" data-minwidth="100" class="">
+        <div class="layui-table-cell laytable-cell-1-0-5">签名-1</div>
+      </td>
+      <td data-field="goodall" data-key="1-0-6" class="">
+        <div class="layui-table-cell laytable-cell-1-0-6">884</div>
+      </td>
+      <td data-field="orderall" data-key="1-0-7" class="">
+        <div class="layui-table-cell laytable-cell-1-0-7">27</div>
+      </td>
+      <td data-field="ordertime" data-key="1-0-8" class="">
+        <div class="layui-table-cell laytable-cell-1-0-8">词人</div>
+      </td>
+      <td data-field="operate" data-key="1-0-9" class="">
+        <div class="layui-table-cell laytable-cell-1-0-9">64928690</div>
+      </td>
+    </tr> -->
+   </table>
+    
   </div>
   
   <div class="layui-footer">
@@ -89,6 +115,27 @@
 layui.use('element', function(){
   var element = layui.element;
   
+});
+layui.use('table', function(){
+  var table = layui.table;
+  
+  table.render({
+    elem: '#test'
+    ,url:'/demo/table/user/'
+    ,cols: [[
+      {type:'checkbox',width:50}
+      ,{field:'id', width:100, title: 'ID', sort: true}
+      ,{field:'goodname', width:150, title: '商品名称'}
+      ,{field:'price', width:100, title: '价格', sort: true}
+      ,{field:'quantity', width:100, title: '数量'}
+      ,{field:'yunfei', width:100, title: '运费'}
+      ,{field:'goodall', width:100, title: '商品总额'}
+      ,{field:'orderall', width:100, title: '订单总额'}
+      ,{field:'ordertime', minWidth:100, title: '下单时间', sort: true}
+      ,{field:'operate', width:200, title: '操作'} 
+    ]]
+    ,page: true
+  });
 });
 </script>
 </body>
