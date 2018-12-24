@@ -1,115 +1,215 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>商品分类</title>
-  <link rel="stylesheet" type="text/css" href="../assets/layui/css/layui.css" />
-  <link rel="stylesheet" type="text/css" href="../css/goodsort.css" />
-  <script type="text/javascript" src="../assets/layui/layui.js"></script>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>商品分类</title>
+		<link rel="stylesheet" type="text/css" href="../assets/layui/css/layui.css" />
+		<link rel="stylesheet" type="text/css" href="../css/goodsort.css" />
+		<script type="text/javascript" src="../assets/layui/layui.js"></script>
+		<script type="text/javascript" src="../assets/common.js"></script>
+	</head>
+	
+	<body class="layui-layout-body">
+		<div class="layui-layout layui-layout-admin">
+			<div class="layui-header">
+				<div class="layui-logo">GX商城后台管理系统</div>
+				<!-- 头部区域（可配合layui已有的水平导航） -->
+				<ul class="nav-left">
+					<li class="nav-leftchild"><a href="../index.html">首页</a></li>
+					<li class="nav-leftchild"><a href="javascript:;">/ 商品管理</a></li>
+					<li class="nav-leftchild"><a href="javascript:;">/ 商品分类</a></li>
+				</ul>
+				<ul class="layui-nav layui-layout-right">
+					<li class="layui-nav-item">
+						<a href="javascript:;" class="addname">
+							<img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+							大神
+						</a>
+						<dl class="layui-nav-child">
+							<dd><a href="">基本资料</a></dd>
+							<dd><a href="">安全设置</a></dd>
+						</dl>
+					</li>
+					<li class="layui-nav-item"><a href="login.html">退出</a></li>
+				</ul>
+			</div>
 
-</head>
-<body class="layui-layout-body">
-<div class="layui-layout layui-layout-admin">
-  <div class="layui-header">
-    <div class="layui-logo">GX商城后台管理系统</div>
-    <!-- 头部区域（可配合layui已有的水平导航） -->
-    <ul class="nav-left">
-      <li class="nav-leftchild"><a href="javascript:;">首页</a></li>
-      <li class="nav-leftchild"><a href="javascript:;">/ 商品管理</a></li>
-      <li class="nav-leftchild"><a href="javascript:;">/ 商品分类</a></li>
-    </ul>
-    <ul class="layui-nav layui-layout-right">
-      <li class="layui-nav-item">
-        <a href="javascript:;">
-          <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
-          大神
-        </a>
-        <dl class="layui-nav-child">
-          <dd><a href="">基本资料</a></dd>
-          <dd><a href="">安全设置</a></dd>
-        </dl>
-      </li>
-      <li class="layui-nav-item"><a href="">退出</a></li>
-    </ul>
-  </div>
-  
-  <div class="layui-side layui-bg-black">
-    <div class="layui-side-scroll">
-      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-      <ul class="layui-nav layui-nav-tree"  lay-filter="test">
-        <li class="layui-nav-item layui-nav-itemed">
-          <a class="" href="javascript:;">商品管理</a>
-          <dl class="layui-nav-child">
-            <dd><a href="javascript:;">商品列表</a></dd>
-            <dd><a href="javascript:;">商品分类</a></dd>
-            <dd><a href="javascript:;">添加商品</a></dd>
-            <dd><a href="javascript:;">添加分类</a></dd>
-          </dl>
-        </li>
-        <li class="layui-nav-item">
-          <a href="javascript:;">用户管理</a>
-          <dl class="layui-nav-child">
-            <dd><a href="javascript:;">用户列表</a></dd>
-            <dd><a href="javascript:;">添加用户</a></dd>
-          </dl>
-        </li>
-        <li class="layui-nav-item">
-          <a href="javascript:;">订单管理</a>
-          <dl class="layui-nav-child">
-            <dd><a href="javascript:;">订单列表</a></dd>
-          </dl>
-        </li>
-      </ul>
-    </div>
-  </div>
-  
-  <div class="layui-body">
-    <!-- 内容主体区域 -->
-    <div class="layui-bodytop">    
-      <div class="addbtn1">
-        <button class="layui-btn">增加</button>
-        <button class="layui-btn layui-btn-danger">删除</button>
-      </div>
-    </div>
+			<div class="layui-side layui-bg-black">
+				<div class="layui-side-scroll">
+					<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+					<ul class="layui-nav layui-nav-tree" lay-filter="test">
+						<li class="layui-nav-item layui-nav-itemed">
+							<a class="" href="javascript:;">商品管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="goodlist.html" class="addcookie">商品列表</a></dd>
+								<dd><a href="goodsort.html" class="addcookie">商品分类</a></dd>
+								<dd><a href="goodadd.html" class="addcookie">添加商品</a></dd>
+								<dd><a href="sortadd.html" class="addcookie">添加分类</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">用户管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="userlist.html" class="addcookie">用户列表</a></dd>
+								<dd><a href="useradd.html" class="addcookie">添加用户</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">订单管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="orderlist.html" class="addcookie">订单列表</a></dd>
+							</dl>
+						</li>
+					</ul>
+				</div>
+			</div>
 
-   <table class="layui-hide" id="test"></table>
-  </div>
-  
-  <div class="layui-footer">
-    <!-- 底部固定区域 -->
-    © GX后台管理系统 2018-2030
-  </div>
-</div>
-<script>
-//JavaScript代码区域
-layui.use('element', function(){
-  var element = layui.element;
-  
-});
-layui.use('table', function(){
-  var table = layui.table;
-  
-  table.render({
-    elem: '#test'
-    ,url:'/demo/table/user/'
-    ,cols: [[
-      {type:'checkbox',width:50}
-      ,{field:'id', width:100, title: 'ID', sort: true}
-      ,{field:'username', width:150, title: '用户名'}
-      ,{field:'sex', width:100, title: '性别', sort: true}
-      ,{field:'city', width:100, title: '城市'}
-      ,{field:'sign', title: '签名', minWidth: 150}
-      ,{field:'classify', width:100, title: '职业'}
-      ,{field:'score', width:100, title: '评分', sort: true}
-      ,{field:'experience', width:100, title: '积分', sort: true}
-      ,{field:'operate', width:200, title: '操作'} 
-    ]]
-    ,page: true
-  });
-});
-</script>
-</body>
+			<div class="layui-body">
+				<!-- 内容主体区域 -->
+				<div class="layui-btn-container">
+					<button class="layui-btn layui-btn-sm" id="addgoodbtn">添加</button>
+					<button class="layui-btn layui-btn-sm" data-type="getCheckData">批量删除</button>
+				</div>
+				<table class="layui-hide" id="test" lay-filter="test"></table>
+
+				<script type="text/html" id="barDemo">
+					<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+				</script>
+
+				<script>
+					layui.use('table', function() {
+						var table = layui.table;
+						var $ = layui.jquery;
+						table.render({
+							elem: '#test',
+							url: '/category',
+							toolbar: '#toolbarDemo',
+							cols: [
+								[{
+									type: 'checkbox',
+									width: 200
+								}, {
+									field: 'lid',
+									title: '种类序号',
+									width: 200,
+									unresize: true
+								}, {
+									field: 'category',
+									title: '商品种类',
+									edit: 'text'
+								}, {
+									field: 'addtime',
+									title: '添加时间',
+									width: 400,
+									unresize: true
+								}, {
+									fixed: 'right',
+									title: '操作',
+									toolbar: '#barDemo',
+									width: 220
+								}]
+							],
+							page: true
+						});
+
+						//监听行工具事件
+						table.on('tool(test)', function(obj) {
+							var data = obj.data;
+							console.log(data);
+							if (obj.event === 'del') {
+								layer.confirm('真的删除行么', function(index) {
+									$.ajax({
+										type:"get",
+										url:"/category/delone",
+										data: "lid="+data.lid,
+										success: function (data) {
+											var message = data.msg;
+											var code = data.code;
+											if(data.code === 0){
+ 												obj.del();
+ 												layer.close(index);
+ 												layer.alert(message,{icon: 1,time:2000});
+ 												table.reload('test',{
+   													url:'/category',
+   													where: {}
+ 												});
+											}else{
+												layer.alert(message, {
+													icon: 2,title:'提示'
+												});
+												return;
+											}
+										},
+										error: function () {
+										}
+									})
+								});
+							} 
+						});
+						//删除多行
+            		var $ = layui.$, active = {
+            			getCheckData:function(){
+                			var checkStatus = table.checkStatus('test');// table.checkStatus是Layui中自带，id: 'table的id
+                			if(checkStatus.data.length==0){
+                    			parent.layer.msg('请先选择要删除的数据行！', {icon: 2});
+                    			return ;
+                			}
+                			var codeId= '';
+                			for(var i=0;i<checkStatus.data.length;i++){
+                    			codeId += checkStatus.data[i].lid+",";
+                			}
+                			parent.layer.msg('删除中...', {icon: 16,shade: 0.3,time:5000});
+        					layer.confirm("您确定要删除吗？"+codeId,function(){
+                    			$.ajax({
+                        			type:"get",
+                        			url: '/category/delmore',
+                        			data:{"lid":codeId},
+                        			success:function (data) {
+                            			layer.closeAll('loading');
+                            			if(data.code === 0){
+                                			parent.layer.msg('删除成功！', {icon: 1});
+                                			location.reload(true);
+                            			}else{
+                                			parent.layer.msg('删除失败！', {icon: 2});
+                            			}
+                        			}
+                    			})
+                			})
+        				}
+        			};
+        			//通用按钮
+        			$('.layui-btn').on('click', function(){
+            			var type = $(this).data('type');
+           			 active[type] ? active[type].call(this) : '';
+        			});
+
+
+					});
+				</script>
+
+			</div>
+
+			<div class="layui-footer">
+				<!-- 底部固定区域 -->
+				© GX后台管理系统 2018-2030
+			</div>
+		</div>
+		<script>
+			//JavaScript代码区域
+			layui.use('element', function() {
+				var element = layui.element;
+			});
+			//改成对应名字
+			var addname = document.querySelector('.addname');
+			var username = Cookie.get('username');//获取cookies
+			addname.innerHTML = username;
+
+			//点击添加商品按钮
+			var addgoodbtn = document.querySelector('#addgoodbtn');
+			addgoodbtn.onclick=function(){
+				location.href = "sortadd.html";
+			}
+		</script>
+	</body>
 </html>
-  
-

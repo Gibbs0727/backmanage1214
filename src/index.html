@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html>
 <head>
   <meta charset="utf-8">
@@ -8,7 +7,7 @@
   <link rel="stylesheet" type="text/css" href="assets/layui/css/layui.css" />
   <link rel="stylesheet" type="text/css" href="css/index.css" />
   <script type="text/javascript" src="assets/layui/layui.js"></script>
-
+  <script type="text/javascript" src="assets/common.js"></script>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
@@ -19,7 +18,7 @@
     </ul>
     <ul class="layui-nav layui-layout-right">
       <li class="layui-nav-item">
-        <a href="javascript:;">
+        <a href="javascript:;" class="addname">
           <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
           大神
         </a>
@@ -28,7 +27,7 @@
           <dd><a href="">安全设置</a></dd>
         </dl>
       </li>
-      <li class="layui-nav-item"><a href="">退出</a></li>
+      <li class="layui-nav-item"><a href="html/login.html">退出</a></li>
     </ul>
   </div>
   
@@ -39,23 +38,23 @@
         <li class="layui-nav-item layui-nav-itemed">
           <a class="" href="javascript:;">商品管理</a>
           <dl class="layui-nav-child">
-            <dd><a href="javascript:;">商品列表</a></dd>
-            <dd><a href="javascript:;">商品分类</a></dd>
-            <dd><a href="javascript:;">添加商品</a></dd>
-            <dd><a href="javascript:;">添加分类</a></dd>
+            <dd><a href="html/goodlist.html" class="addcookie">商品列表</a></dd>
+            <dd><a href="html/goodsort.html" class="addcookie">商品分类</a></dd>
+            <dd><a href="html/goodadd.html" class="addcookie">添加商品</a></dd>
+            <dd><a href="html/sortadd.html" class="addcookie">添加分类</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">
           <a href="javascript:;">用户管理</a>
           <dl class="layui-nav-child">
-            <dd><a href="javascript:;">用户列表</a></dd>
-            <dd><a href="javascript:;">添加用户</a></dd>
+            <dd><a href="html/userlist.html" class="addcookie">用户列表</a></dd>
+            <dd><a href="html/useradd.html" class="addcookie">添加用户</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">
           <a href="javascript:;">订单管理</a>
           <dl class="layui-nav-child">
-            <dd><a href="javascript:;">订单列表</a></dd>
+            <dd><a href="html/orderlist.html" class="addcookie">订单列表</a></dd>
           </dl>
         </li>
       </ul>
@@ -109,18 +108,21 @@ layui.use('element', function(){
   var element = layui.element;
   
 });
+
+//改成对应名字
+var addname = document.querySelector('.addname');
+var username = Cookie.get('username');//获取cookies
+addname.innerHTML = username;
+
+//每次点击都传cookies到下个页面
+var addcookie = document.querySelector('.addcookie');
+addcookie.onclick=function(){
+  Cookie.set('username', username, {path: "/"});
+}
+
+
 </script>
 </body>
 </html>
   
 
-=======
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-    </head>
-    <body>
-    <h1>666</h1>
-    </body>
-</html>
->>>>>>> a9d3567063e29a96828390080321cb5cafa5f5ba

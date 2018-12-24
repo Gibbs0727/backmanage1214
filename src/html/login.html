@@ -5,7 +5,7 @@
     <title>登录页面</title>
     <link rel="stylesheet" type="text/css" href="../css/login.css" />
     <link rel="stylesheet" type="text/css" href="../css/base.css" />
-    <script src="../lib/common.js" type="text/javascript"></script>
+    <script src="../assets/common.js" type="text/javascript"></script>
 </head>
 <body>
     <div class="box">
@@ -48,7 +48,6 @@
         let btnlogin = document.querySelector('.btnlogin');
         let spaninf = document.querySelector('.biaodan_c .s1');
         let spaninf2 = document.querySelector('.biaodan_c .s3');
-
         let authcode = document.querySelector('.authcode');
         
         let isok=false;
@@ -105,7 +104,8 @@
                         if(status.includes(xhr.status)){
                             let res = JSON.parse(xhr.responseText);
                             console.log(res);
-                            if(res.code===1){
+                            if(res.code===0){
+                                Cookie.set('username',_username,{path:"/"});
                                 location.href = '../index.html';
                             }else{
                                 spaninf.innerHTML='输入的账号或者密码不正确';
